@@ -1,0 +1,11 @@
+FROM zenoss/build-tools:%BUILD_TOOLS_VERSION%
+MAINTAINER Zenoss <dev@zenoss.com>
+
+# Install stuff for libsmi build and FPM.
+RUN yum -y install libtool flex bison tar gzip make gcc rpm-build ruby-devel && \
+    gem install fpm
+
+RUN groupadd -f -g %GID% build
+RUN useradd -d /home/build -m -s /bin/bash -u %UID% -g %GID% build 
+RUN echo "build ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+USER build
