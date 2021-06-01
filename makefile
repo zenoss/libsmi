@@ -31,8 +31,7 @@ SOURCE_DIR  := $(BUILD_DIR)/$(PKG_NAME)
 
 RPM         := $(NAME)-$(VERSION)-$(RELEASE).$(ARCH).rpm
 
-BUILD_TOOLS_VERSION = 0.0.11  # Version of zenoss/build-tools image.
-BUILD_IMAGE         = zenoss/build-libsmi
+BUILD_IMAGE := zenoss/build-libsmi
 
 DOCS = $(DOC_DIR)/ANNOUNCE \
 	   $(DOC_DIR)/ChangeLog \
