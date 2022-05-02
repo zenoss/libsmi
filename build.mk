@@ -1,6 +1,5 @@
 NAME        := libsmi
 VERSION     := 0.5.0
-ARCH        := x86_64
 RELEASE     := 1
 CATEGORY    := System Environment/Libraries
 SUMMARY     := A library to access SMI MIB information
@@ -22,8 +21,8 @@ ETC_DIR     := $(PKG_DIR)/etc
 SOURCE      := $(PKG_NAME).tar.gz
 SOURCE_DIR  := $(BUILD_DIR)/$(PKG_NAME)
 
-RPM         := $(NAME)-$(VERSION)-$(RELEASE).$(ARCH).rpm
-DEB         := $(NAME)-$(VERISON)-$(RELEASE)_amd64.deb
+RPM         := $(NAME)-$(VERSION)-$(RELEASE).x86_64.rpm
+DEB         := $(NAME)_$(VERISON)-$(RELEASE)_amd64.deb
 
 DOCS = $(DOC_DIR)/ANNOUNCE \
 	   $(DOC_DIR)/ChangeLog \
