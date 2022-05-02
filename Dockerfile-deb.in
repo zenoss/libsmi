@@ -1,0 +1,16 @@
+FROM ubuntu:20.04
+
+RUN groupadd -f -g %GID% build; \
+    useradd -d /home/build -m -s /bin/bash -u %UID% -g %GID% build; \
+    echo "build ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Install stuff for libsmi build and FPM.
+RUN apt-get update; \
+    apt-get install --yes --no-install-recommends git wget ruby ruby-dev rubygems build-essential; \
+    apt-get -q purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+    rm -rf /var/lib/apt/lists/*
+
+RUN gem install --no-document git; \
+    gem install --no-document fpm
+
+USER build
